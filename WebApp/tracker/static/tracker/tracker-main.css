@@ -1,0 +1,170 @@
+body {
+  background-image: url('kazumaland.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center 32%;
+}
+
+.container-se-autentique {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 100px;
+  margin-left: 15px;
+  width: 500px; 
+  height: 200px;
+}
+
+.se-autentique {
+  color:#cc00e7;
+}
+
+.container-se-autentique a {
+  font-family: "Inter";
+  font-weight: 600;
+  font-size: 22px;
+  line-height: 125%;
+
+}
+
+/* Configs do header */
+
+.bg-steel {
+  background-color: #6d025f;
+}
+
+.navbar-mini-kazuma {
+  width: 66px; /* Ajuste o tamanho conforme necessário */
+  height: 55px;
+  margin-right: 10px; /* Espaçamento entre o ícone e outros elementos da navbar */
+}
+
+.site-header .navbar-nav .nav-link {
+  color: #cbd5db;
+}
+
+.site-header .navbar-nav .nav-link:hover {
+  color: #ffffff;
+}
+
+.site-header .navbar-nav .nav-link.active {
+  font-weight: 500;
+}
+
+/* Configs do sub-header (tracker header) */
+.tracker-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 48px;
+
+  position: fixed;
+  width: 100%;
+}
+
+.tracker-logo {
+  width: 300px; /* Ajuste o tamanho conforme necessário */
+  height: 150px;
+  position: relative;
+  top: -11px;
+}
+
+.tracker-button {
+  padding: 16px 24px;
+  border-radius: 8px;
+  border: 1px solid #8b5cf6;
+  background-color: transparent;
+  color: white;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  
+  font-family: "Inter";
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 125%;
+}
+  
+
+/* Configs do body */
+
+.tracker {
+  background-color: #09090a;
+  height: 100vh;
+  margin-top: 30px;
+}
+  
+
+  #form-habits {
+    display: flex;
+  
+    padding: 182px 48px 48px;
+    width: fit-content;
+  }
+
+  .habits {
+    margin-top: 58px;
+  
+    display: flex;
+    flex-direction: column;
+  
+    gap: 24px;
+  }
+  
+  .habit {
+    width: 64px;
+    height: 64px;
+  
+    font-size: 32px;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .days {
+    display: flex;
+    gap: 48px;
+    margin-left: 32px;
+  }
+  
+  .day {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .day div {
+    margin-bottom: 3px;
+    margin-top: 5px;
+    font-family: "Roboto Mono";
+    font-size: 20px;
+    line-height: 125%;
+  
+    color: #a1a1aa;
+  
+    text-align: center;
+  }
+
+  .checkboxes {
+    appearance: none;
+    -webkit-appearance: none;
+  
+    width: 64px;
+    height: 64px;
+  
+    border: 2px solid #27272a;
+    border-radius: 8px;
+  
+    background: #18181b;
+  }
+  
+  input:checked {
+    background: #8b5cf6;
+    border: 2px solid #a78bfa;
+  }
+
+
+ 
