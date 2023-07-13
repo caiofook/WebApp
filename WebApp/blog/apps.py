@@ -1,3 +1,5 @@
+# We're telling Django that this is an App. So it will be correctly handled by the settings.py
+
 from django.apps import AppConfig
 
 

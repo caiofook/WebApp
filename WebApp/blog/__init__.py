@@ -1,1 +1,1 @@
-#este arquivo apenas indica que o seu diretório é um pacote python.
+#This directory is a python packet

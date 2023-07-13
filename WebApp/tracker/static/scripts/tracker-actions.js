@@ -31,7 +31,7 @@ function save() {
     method: 'POST',
     headers: {
       'Content-Type': 'application/x-www-form-urlencoded',
-      'X-CSRFToken': getCookie('csrftoken'),  // assuming you're using Django's CSRF protection
+      'X-CSRFToken': getCookie('csrftoken'),  
     },
     body: `tracker_data=${encodeURIComponent(trackerData)}`,
   })
@@ -43,18 +43,11 @@ function save() {
       console.error('Error:', error);
     });
 }
-/** 
- * Função  save() antiga, salvava no localstorage.
-
-function save() {
-  localStorage.setItem("HabitsApp@habits", JSON.stringify(nlwSetup.data))
-}
-*/
 
 fetch('load_tracker_data/')
   .then(response => response.json())
   .then(data => {
-    const trackerdata = JSON.parse(data) || {};  // Assuming the response JSON has a property 'tracker_data'
+    const trackerdata = JSON.parse(data) || {};  
 
     nlwSetup.setData(trackerdata);
     nlwSetup.load();
@@ -63,10 +56,14 @@ fetch('load_tracker_data/')
     console.error('Error:', error);
   });
 
+/**
+ * Before, we had load() and save() functions storing the data on localstorage.
 
-
-/**função load antiga, carregava do localstorage 
 const data = JSON.parse(localStorage.getItem("HabitsApp@habits")) || {}
 nlwSetup.setData(data)
 nlwSetup.load()
+
+function save() {
+  localStorage.setItem("HabitsApp@habits", JSON.stringify(nlwSetup.data))
+}
 */
