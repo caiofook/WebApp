@@ -10,38 +10,38 @@ from django.views.generic import (
 )
 from .models import Post
 
-# lembrete importante, o django vai buscar por padrão a pasta templates. 
-# Por isso, os templates para o blog eu devo criar na pasta templates. 
-# Ainda, a convenção do django é, dentor da pasta templates (que já está dentro da pasta"blog") criar outra pasta 
-# específica para o blog e dentro dessa pasta é que estará o nosso template.html. Agora, se falarmos para o Django ir atrás
-# de um template, ele já vai olhar em "templates", precisamos direcioná-lo apenas a partir daí
+"""
+Here, we deal with the requests that are made when the user is triggering 
+when using the blogs app.
+
+We'll use some default django views (django.views.generic) and increment it 
+for our purposes
+"""
+
+"""
+Django will look for templates first in the directory app/templates/app . So
+we just need to organise our folders and supply the code with the filename.
+"""
 
 
-# from django.http import HttpResponse --> não é mais necessário
-# o caminho mais "normal" para passar nossos templates para a view seria carregar o template aqui, depois
-# renderizá-lo e incluílo na httpresponse. Porém o django fornece um atalho, que é o a biblioteca render dentro do módulo django.shortcuts.
-# abaixo, deixei comentado como seria sem usar o render e sem usar os templates
-#def home(request):
- #   return HttpResponse('<h1>Blog Home</h1>')
-
-#def about(request):
- #   return HttpResponse('<h1>About The Blog</h1>')
-
-
-def blog(request):
-    context = {
-        'posts': Post.objects.all()
-    }
-    return render(request, 'blog/home.html', context) #essa função retorna uma resposta http
+## Access the Post table on db (through the Post model). We create a list of the posts
+# in the context variable and call it "posts". "posts" is called in our template to
+# render the page with it.
+# We also use djangos paginator to especify alphab. decres. and max 5 by page.
+# The "receiving request" and the "sending response" is handled by default methods of ListView.
 
 
 class PostListView(ListView):
     model = Post
-    template_name = 'blog/home.html' #django pede um <app>/<model>_<viewtype>.html
+    template_name = 'blog/home.html' #django asks for <app>/<model>_<viewtype>.html
     context_object_name = 'posts'
     ordering = ['-data_postagem']
     paginate_by = 5
 
+## Here we have the view for user_posts.html.
+# We use get_queryset to obtain another object (User) to be used on the template
+# user variable will take the User with the same username as the one suplied in URL.
+# Then, filter his posts and associates it with the data expected in user_posts.html.
 
 class UserPostListView(ListView):
     model = Post
@@ -54,8 +54,11 @@ class UserPostListView(ListView):
         return Post.objects.filter(autor=user).order_by('-data_postagem')
 
 
+# Django's DetailView suplied with our Post model.
+
 class PostDetailView(DetailView):
     model = Post
+
 
 
 class PostCreateView(LoginRequiredMixin, CreateView):
